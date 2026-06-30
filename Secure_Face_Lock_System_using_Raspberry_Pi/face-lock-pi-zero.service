@@ -1,0 +1,16 @@
+[Unit]
+Description=Face + Fingerprint Lock (Pi Zero 2 W, headless)
+After=multi-user.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/face_lock_pi
+ExecStart=/usr/bin/python3 /home/pi/face_lock_pi/pi_zero_face_lock.py
+Restart=on-failure
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
